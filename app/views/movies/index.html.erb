@@ -1,4 +1,8 @@
-<% @movies.each do |movie| %>
-  <%= movie.title %>
+  <% @movies.each do |movie| %>
+  <%= link_to movie_path(id: movie.id) do %>
+
+    <%= movie.title %>
 
   <% end %>
+<% end %>
+
