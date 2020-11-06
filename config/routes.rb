@@ -4,7 +4,14 @@ Rails.application.routes.draw do
 
   root to: 'movies#index'
 
-  resources :movies, only: [:show]
+  resources :movies do
+    resource :like, only: [:create]
+  end
+
+  resources :favorites, only: [:index]
+
+  
+
 
   
 end

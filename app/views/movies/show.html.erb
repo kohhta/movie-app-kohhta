@@ -1,2 +1,7 @@
 <%= @movie.title %>
 <%= @movie.content %>
+
+<%= link_to movie_like_path(@movie), data: { method: 'post' } do %>
+<p>like</p>
+  <% end %>
+
