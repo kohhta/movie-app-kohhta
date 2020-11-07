@@ -1,0 +1,8 @@
+.movie
+  %h1.movie_title
+    = @movie.title
+  %h2.movie_content
+    = @movie.content
+  = link_to movie_favorite_path(@movie), data: { method: 'post' } do
+    .fovorite_btn
+      fovorite
