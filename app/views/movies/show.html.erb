@@ -1,15 +1,15 @@
-<h1 class="movie_title">
-  <%= @movie.title %>
-</h1>
+<div class="movie">
+  <h1 class="movie_title">
+    <%= @movie.title %>
+  </h1>
 
-<h2 class="movie_content">
-  <%= @movie.content %>
-</h2>
+  <h2 class="movie_content">
+    <%= @movie.content %>
+  </h2>
 
-
-<%= link_to movie_favorite_path(@movie), data: { method: 'post' } do %>
-  <div class="fovorite_btn">
-    fovorite
-  </div>
-<% end %>
-
+  <%= link_to movie_favorite_path(@movie), data: { method: 'post' } do %>
+    <div class="fovorite_btn">
+      fovorite
+    </div>
+  <% end %>
+</div>

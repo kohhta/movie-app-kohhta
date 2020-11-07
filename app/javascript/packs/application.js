@@ -20,10 +20,10 @@ import $ from 'jquery'
 import axios from 'axios'
 
 document.addEventListener('turbolinks:load', () => {
-  $('.movie_title').on('click', () => {
-    axios.get('/')
+  const dataset = $('#article-show').data()
+  const movieId = dataset.movieId
+  axios.get(`/movies/${movieId}/favorite`)
     .then((response) => {
       console.log(response)
     })
-  })
 } )

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: 'movies#index'
 
   resources :movies do
-    resource :favorite, only: [:create]
+    resource :favorite, only: [:show, :create]
   end
 
   resources :favorites, only: [:index]

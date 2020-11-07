@@ -8,5 +8,9 @@ class User < ApplicationRecord
           has_many :favorites, dependent: :destroy
           has_many :favorite_movies, through: :favorites, source: :movie
 
+          def has_favorited?(movie)
+            favorites.exists?(movie_id: movie.id)
+          end
+
 
 end
