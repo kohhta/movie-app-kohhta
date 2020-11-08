@@ -14,7 +14,7 @@ class FavoritesController < ApplicationController
   def create
     movie = Movie.find(params[:movie_id])
     movie.favorites.create!(user_id: current_user.id)
-    redirect_to movie_path(movie)
+    render json: { status: 'ok' }
   end
   
 end

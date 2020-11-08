@@ -4,7 +4,6 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
@@ -18,12 +17,31 @@ require("channels")
 
 import $ from 'jquery'
 import axios from 'axios'
+import { csrfToken } from 'rails-ujs'
 
-document.addEventListener('turbolinks:load', () => {
-  const dataset = $('#article-show').data()
+axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
+
+document.addEventListener('DOMContentLoaded', () => {
+  const dataset = $('#movie-show').data()
   const movieId = dataset.movieId
   axios.get(`/movies/${movieId}/favorite`)
     .then((response) => {
       console.log(response)
     })
+
+    $('.fovorite_btn').on('click', () => {
+      axios.post(`/movies/${movieId}/favorite`)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((error) => {
+        window.alert('Error')
+        console.log(error)
+      })
+    })
+
 } )
+
+
+
+
