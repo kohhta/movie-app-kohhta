@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resource :favorite, only: [:show, :create]
   end
 
-  resources :favorites, only: [:index]
+  resources :favorites, only: [:index, :show]
 
   
 

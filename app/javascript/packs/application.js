@@ -26,12 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const movieId = dataset.movieId
   axios.get(`/movies/${movieId}/favorite`)
     .then((response) => {
+      window.alert(' apiKey をパラメータとして受け取り、リクエストされたムービーの詳細を構造化された JSON で返します')
       console.log(response)
     })
 
     $('.fovorite_btn').on('click', () => {
       axios.post(`/movies/${movieId}/favorite`)
       .then((response) => {
+        window.alert('お気に入りの映画を追加します')
         console.log(response)
       })
       .catch((error) => {
@@ -39,8 +41,23 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(error)
       })
     })
-
 } )
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    $('.favorites-all').on('click', () => {
+      axios.get(`/favorites`)
+      .then((response) => {
+        window.alert('ユーザーが以前にお気に入りにした映画を返します')
+          console.log(response)
+        })
+        .catch((e) => {
+          window.alert('Error')
+          console.log(e)
+        })
+    })
+
+})
 
 
 
