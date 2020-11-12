@@ -1,0 +1,8 @@
+.movie#movie-show{data: {movie_id: @movie.id}}
+
+  %h1.movie_title
+    = @movie.title
+  %h2.movie_content
+    = @movie.content
+    .fovorite_btn
+      fovorite(click)

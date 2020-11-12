@@ -1,0 +1,6 @@
+.favorites-all
+  = link_to 'favorites', favorites_path
+- @movies.each do |movie|
+  = link_to movie_path(id: movie.id) do
+    %h2.movie_title
+      = movie.title
